@@ -3,7 +3,7 @@ Repository for Neural Network class project - Prediction of calories based on fo
 
 ## Part 1. Conceputal design
 
-Goal of the project is to desing a Nueral Network where for its input it will take a picture of a plate with food items on it and the output will be the number of calories each item is and what the combined total is.
+Goal of the project is to desing a Neural Network where for its input it will take a picture of a plate with food items on it and the output will be the number of calories each item is and what the combined total is.
 
 Dataset - couple of dataset come to mind, but found a dataset <http://www.ivl.disco.unimib.it/activities/food-recognition/> that is perfect for this task.
 It consists of many images of different foods on a plate which we can use to identify different foods on a plate. 
