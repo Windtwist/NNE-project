@@ -97,14 +97,13 @@ In order to get the final calorie count I had to get a little creative and it is
 #### Plate detection
 
 ![alt text](/images/plate.png)
-![alt text](/images/plate2.png)
 
+![alt text](/images/plate-2.png)
 
 #### API call - Nutrionix API
 
-![alt text](/images/api call.png)
-
+![alt text](/images/api-call.png)
 
 #### Final calorie estimation
 
-![alt text](http://url/to/img.png)
+![alt text](/images/final-calorie-count.png)
