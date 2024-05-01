@@ -1,5 +1,7 @@
 # NNE-project
-Repository for Neural Network class project - Prediction of calories based on food pictures using NN
+Repository for Neural Network class project - Prediction of calories based on food pictures using 
+
+In order to run make sure to download best.pt and incldue it into the Collab Runtime othervise the model will not work.
 
 ## Part 1. Conceputal design
 
