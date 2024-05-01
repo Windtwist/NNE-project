@@ -92,15 +92,17 @@ In order to get the final calorie count I had to get a little creative and it is
 
 #### Classifier for food with bounding boxes + coordinates
 
-![alt text](http://url/to/img.png)
+![alt text](/images/classifier.png)
 
 #### Plate detection
 
-![alt text](http://url/to/img.png)
+![alt text](/images/plate.png)
+![alt text](/images/plate2.png)
+
 
 #### API call - Nutrionix API
 
-![alt text](http://url/to/img.png)
+![alt text](/images/api call.png)
 
 
 #### Final calorie estimation
