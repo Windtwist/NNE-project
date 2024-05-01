@@ -88,22 +88,29 @@ Different methods were used to evaluate the model, main ones is mAP@50 this is t
 
 ### Final calorie count
 
-In order to get the final calorie count I had to get a little creative and it is the reason why the solution works on a limited amount of simples, specific one being the choosen test sample which can be seen below. Okay so in order to get the caloric values, there are many new programs employed. First, one must find the area of the plate where the food is placed, that was the first challenge. I used canny edge detection and countours with an elipsoid contour to find the area which the plate occupies. After this I took all my detection coordinates, and mapped out the area each food takes in that elipsoid are region. Then those value were normalized to the region, so taht we cannot exceed 100% of that region. Bad solution because we do not know the actual plate size and just estimating it from the elipsoid area compared to the food area. Then I pull an API call using Nutrionix API and find real caloric content of all the foods detected. Then I multiply that normalized area with that caloric content and get my final resutls + I add some margin because the caloric value was too low, because of the way I normalized the food items to the plate. Below you can see that process.
-
+In order to get the final calorie count I had to get a little creative and it is the reason why the solution works on a limited amount of simples, specific one being the choosen test sample which can be seen below. 
 #### Classifier for food with bounding boxes + coordinates
+
+First the trained model outputs some classified foods and their bounding boxes along with their coordinates.
 
 ![alt text](/images/classifier.png)
 
 #### Plate detection
+Second one must find the area of the plate where the food is placed, that was the first challenge. I used canny edge detection and countours with an elipsoid contour to find the area which the plate occupies. After this I took all my detection coordinates, and mapped out the area each food takes in that elipsoid area region. 
 
 ![alt text](/images/plate.png)
 
+Then those value were normalized to the region, so that we cannot exceed 100% of that region. Bad solution because we do not know the actual plate size and just estimating it from the elipsoid area compared to the food area.
 ![alt text](/images/plate-2.png)
 
+
 #### API call - Nutrionix API
+Okay so in order to get the caloric values, there are many new programs employed.  Then I pull an API call using Nutrionix API and find real caloric content of all the foods detected.
 
 ![alt text](/images/api-call.png)
 
-#### Final calorie estimation
 
+#### Final calorie estimation
+ Then I multiply that normalized area with that caloric content and get my final results + some margin because the caloric value was too low, because of the way I normalized the food items to the plate. AFter all the steps the final caloric value of each individual item is given as well as the total caloric value of all items combined.
+ 
 ![alt text](/images/final-calorie-count.png)
