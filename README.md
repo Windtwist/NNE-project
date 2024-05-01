@@ -38,7 +38,7 @@ Also to make life easier and not need to manually annotate the dataset, another 
 
 New dataset for training and validation: [https://universe.roboflow.com/college-gg4mu/food-image-segmentation-using-yolov5]
 
-## Part 3. First solution and validaiton accuracy
+## Part 3. First solution and validation accuracy
 
 ### Reason for chosen architecture: Yolo V8
 
@@ -79,4 +79,30 @@ From the results.png image there are many indicators there as well:
 
 Having choosen the correct model based on our initial results, I would want to train it on a bigger database that I found through roboflow that has around 82 classes. [https://universe.roboflow.com/carmine-tarsia/food-detection-ognx8]. After this and checking if the results are satisfactory since it will take a longer time to train. We can implement the calorie counter algorithm. Looking at past papers most of them indicate regression line to be the best at calculating based on volume and energy, must look into databases that have these infomrations on real food items and then check the bounding boxes or image segmentations. Looking for feedback to see if this is a good approach of if I should scrap the YOLO idea and try U-net next, had many issues with Mask R-CNN where it would not work with Collab because one cannot downgrade in collab back to tensorflow versions under 2. 
 
+## Part 4. Final solution
 
+### Test dataset performance
+The test dataset is part of the split of the training data, its is around 350 images when comapred to the 699 images in the validation set and 2447 images in the training set. Diffenre is that the pictures are much more varried, and have more food classes on them an avg of 5+ classes. I believe that this is a big difference compared to training set becuase in an actual real-time video streaming application that takes input form a phone camera which was the intended idea behind this project it is suffisive. I do agree however that it is also very generalizable to this dataset, but that is because of the training sample and labels. There are many specific labels for specific Indian and Chinesse fods so generalizing those to a wider culture of foods will not work.
+
+Different methods were used to evaluate the model, main ones is mAP@50 this is the mean average value on Intersetion over Unit(IoU) this shows us how close the predicted bounding box is to the ground truth and from our model we achieve 98.8% this indicates that our model is 98.8% close to the ground-truth when the prediction between the bounding box and ground truth threshold is set to 50%. So it performs 0.7% better than the validation set. Main imrpovements to make, is to train on a larger more diverse dataset, that way my final solution would be mroe generalizable since right now it is limited to the dataset which is why testing accuracy is very high. 
+
+### Final calorie count
+
+In order to get the final calorie count I had to get a little creative and it is the reason why the solution works on a limited amount of simples, specific one being the choosen test sample which can be seen below. Okay so in order to get the caloric values, there are many new programs employed. First, one must find the area of the plate where the food is placed, that was the first challenge. I used canny edge detection and countours with an elipsoid contour to find the area which the plate occupies. After this I took all my detection coordinates, and mapped out the area each food takes in that elipsoid are region. Then those value were normalized to the region, so taht we cannot exceed 100% of that region. Bad solution because we do not know the actual plate size and just estimating it from the elipsoid area compared to the food area. Then I pull an API call using Nutrionix API and find real caloric content of all the foods detected. Then I multiply that normalized area with that caloric content and get my final resutls + I add some margin because the caloric value was too low, because of the way I normalized the food items to the plate. Below you can see that process.
+
+#### Classifier for food with bounding boxes + coordinates
+
+![alt text](http://url/to/img.png)
+
+#### Plate detection
+
+![alt text](http://url/to/img.png)
+
+#### API call - Nutrionix API
+
+![alt text](http://url/to/img.png)
+
+
+#### Final calorie estimation
+
+![alt text](http://url/to/img.png)
