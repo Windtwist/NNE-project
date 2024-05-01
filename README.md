@@ -3,6 +3,8 @@ Repository for Neural Network class project - Prediction of calories based on fo
 
 In order to run make sure to download best.pt and incldue it into the Collab Runtime othervise the model will not work.
 
+[Google Collab link](https://colab.research.google.com/drive/1ISiLClvhyn8K8aAAjothfiyZ4IcknDuC?usp=sharing)
+
 ## Part 1. Conceputal design
 
 Goal of the project is to desing a Neural Network where for its input it will take a picture of a plate with food items on it and the output will be the number of calories each item is and what the combined total is.
