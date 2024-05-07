@@ -1,5 +1,5 @@
 # NNE-project
-Repository for Neural Network class project - Prediction of calories based on food pictures using 
+Repository for Neural Network class project - Prediction of calories based on food pictures using YoloV8
 
 In order to run make sure to download best.pt and incldue it into the Collab Runtime othervise the model will not work.
 
