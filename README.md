@@ -35,7 +35,7 @@ Main difference between the dataset that will be used for training and validatio
 calculating the real size based on pixel size in image, sthat way images which can be inputted into the model when testing comes can be of many different resolutions. The testing dataset has many images, but one crucial aspect to see how our model performs is that 
 the testing dataset has different plates and sizes, whewreas the training has same size plates and trays. Another addition in the testing dataset is that there are videos which we can input to test our model, to accomplish the end goal of real-time detection of calories.
 
-## Impoprtant Update:
+## Important Update:
 
 After careful conbsideration and attempting to run the Mask R-CNN model an getting many errors with dependency and version issues from Collab, it was decided to proceed with Yolo V8 for the detection and Image segmentation.
 Also to make life easier and not need to manually annotate the dataset, another dataset was found on Roboflow that has the option of already being in the neccessary format for Yolo V8.
